@@ -10,8 +10,8 @@ In your first capstone, you are a cloud application developer working for AnyCom
 
 <h2>Languages and Utilities Used</h2>
 
-- <b> HTML: </b> For creating the basic webpage, including hyperlinks, an HTML entity, and a favicon.
-- <b> Bash: </b> For running commands in the AWS Cloud9 terminal (e.g., verifying the Apache2 service, moving files).
+- <b> Amazon S3: </b> Amazon S3 is an object storage service that offers industry-leading scalability, data availability, security, and performance. It stores and protect any amount of data for a range of use cases, such as data lakes, websites, built-for-the-cloud applications, backups, archives, machine learning, and analytics.
+- <b> IAM: </b> AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources. With IAM, you can centrally manage permissions that control which AWS resources users can access. You use IAM to control who is authenticated (signed in) and authorized (has permissions) to use resources.
 - <b> AWS Cloud9 IDE: </b> Integrated development environment where the web server was configured and the webpage was created.
 - <b> Amazon EC2: </b>  The virtual server (Ubuntu Linux instance) hosting the Apache2 web server.
 - <b> Apache2: </b> The web server that served the webpage.
