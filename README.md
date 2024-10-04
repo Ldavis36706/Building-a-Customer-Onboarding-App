@@ -10,6 +10,14 @@ In your first capstone, you are a cloud application developer working for AnyCom
 
 <h2>Languages and Utilities Used</h2>
 
+- <b> HTML: </b> For creating the basic webpage, including hyperlinks, an HTML entity, and a favicon.
+- <b> Bash: </b> For running commands in the AWS Cloud9 terminal (e.g., verifying the Apache2 service, moving files).
+- <b> AWS Cloud9 IDE: </b> Integrated development environment where the web server was configured and the webpage was created.
+- <b> Amazon EC2: </b>  The virtual server (Ubuntu Linux instance) hosting the Apache2 web server.
+- <b> Apache2: </b> The web server that served the webpage.
+- <b> Linux Commands (via Bash): </b>  Used for troubleshooting and configuring the server, moving files, and running system commands (e.g., systemctl to check Apache2 status).
+
+
 <h2>Environments Used </h2>
 
  <b>Cloud Platform:
