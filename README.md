@@ -1,5 +1,5 @@
 # Building-a-Customer-Onboarding-App
-In your first capstone, you are a cloud application developer working for AnyCompany Bank. The bank has decided to develop and deploy a customer onboarding application on AWS. During customer onboarding, there is a significant exchange of information between AnyCompany Bank and customers. 
+I was tasked with building a customer onboarding app. The project spans over the course of 10 weeks. Each week I made progress towards completing the app. 
 
 
 <h2>Description</h2>
@@ -26,8 +26,8 @@ AWS (Amazon Web Services): This project was conducted entirely in AWS, utilizing
 <h2>Program walk-through:</h2>
 
 <p align="center">
-
-In this lab, I created an Amazon Simple Storage Service (Amazon S3) bucket to store the customers’ documents, I configured the bucket policy, and created an AWS Identity and Access Management (IAM) role with specific permissions to access the S3 bucket.
+<h4>Week 1:</h4>
+My first week I created an Amazon Simple Storage Service (Amazon S3) bucket to store the customers’ documents, I configured the bucket policy, and created an AWS Identity and Access Management (IAM) role with specific permissions to access the S3 bucket.
 
 <br/>
 
