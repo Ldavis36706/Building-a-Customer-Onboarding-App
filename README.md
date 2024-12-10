@@ -27,7 +27,7 @@ AWS (Amazon Web Services): This project was conducted entirely in AWS, utilizing
 
 <p align="center">
 
-I begin this lab by creating and configuring the Document S3 bucket and Document Lambda function IAM role resources. These resources are highlighted in the following diagram.
+In this lab, I created an Amazon Simple Storage Service (Amazon S3) bucket to store the customers’ documents, I configured the bucket policy, and created an AWS Identity and Access Management (IAM) role with specific permissions to access the S3 bucket.
 
 <br/>
 
