@@ -30,19 +30,20 @@ AWS (Amazon Web Services): This project was conducted entirely in AWS, utilizing
 
 <p align="center">
 
+<h2><u>Week 1</u></h2>
+
 ![Figure 1](https://github.com/user-attachments/assets/99a58b86-a85f-4efa-a465-51d0c99f93ed)
 
 <b><i>Image description: The diagram depicts the KYC application architectural diagram. The diagram highlights the key resources that you need to create and configure in this lab. These two resources are the Document S3 bucket and the Document Lambda function IAM role.</b></i>
 
 <h1></h1>
 
-<h4>Week 1:</h4>
 My first week I created an Amazon Simple Storage Service (Amazon S3) bucket to store the customers’ documents, I configured the bucket policy, and created an AWS Identity and Access Management (IAM) role with specific permissions to access the S3 bucket. 
 <br/> <strong>VERY IMPORTANT:</strong> You must create the permissions <b>**BEFORE**</b> creating the role. You attach the permissions to the role when it's created so it's important to create the permissions first. 
 
 ![Creating Permissions for Lambda role](https://i.imgur.com/mVchuJh.png)
 
-<h1></h1>
+<h2><u>Week 2</u></h2>
 
 ![Figure 2](https://github.com/user-attachments/assets/c9f55f55-c4f4-4c45-8427-05e4a2f37060)
 
@@ -50,20 +51,26 @@ My first week I created an Amazon Simple Storage Service (Amazon S3) bucket to s
 
 <h1></h1>
 
-<h4>Week 2:</h4>
+<h4></h4>
 My second week I created an Amazon DynamoDB table to store customer data, created an Amazon Simple Notification Service (Amazon SNS) topic to send application notifications, and add DynamoDB and Amazon SNS permissions to the AWS Lambda function AWS Identity and Access Management (IAM) role.
-<br/> <strong>VERY IMPORTANT:</strong> You should consider provisioning the capacity mode so that it can auto scale when hitting target utilization. For the onboarding app I set both the read and write capacity to a <b> minimum of 2  units </b> and a <b> maximum of 20 units </b> with <b>70%</b> target utilization.  For the SNS topic, be sure that the topic is encrypted using the default key. After you subscribe to the topic, you must confirm the subscription.
-
+<br/> <strong>VERY IMPORTANT:</strong> You should consider provisioning the capacity mode so that it can auto scale when hitting target utilization. For the onboarding app I set both the read and write capacity to a <b> minimum of 2  units </b> and a <b> maximum of 20 units </b> with <b>70%</b> target utilization.  
 <br/>
 
 ![Creating Dynamo DB table](https://i.imgur.com/g0Q0uxn.png)
 
-<b><i>Image description: The Amazon Dynamo tabel was created successfuly and named "CustomerMetadataTable".</i></b>
+<b><i>Image description: The Amazon Dynamo table was created successfuly and named "CustomerMetadataTable".</i></b>
 
-<br/>
+<h1></h1>
 
-<h4>Week 3:</h4>
-My third week I created an Amazon Simple Storage Service (Amazon S3) bucket to store the customers’ documents, I configured the bucket policy, and created an AWS Identity and Access Management (IAM) role with specific permissions to access the S3 bucket. 
+After you create an Amazon Simple Notification Service topic, be sure to subscribe to the notification. <strong>VERY IMPORTANT:</strong> You should confirm your subscription to receive the notifications.
+
+![SNS Notifications](https://i.imgur.com/n16tsYy.png)
+
+<h2><u>Week 3</u></h2>
+
+![Figure 3](https://i.imgur.com/kSwrUXN.png)
+
+My third week I added new permissions to the AWS Lambda function role, got started with the AWS Cloud9 environment to develop the application code, and created a Lambda function and configured its settings, and configured an Amazon Simple Storage Service (Amazon S3) event notification to invoke the Lambda function. 
 <br/> <strong>VERY IMPORTANT:</strong> You must create the permissions <b>**BEFORE**</b> creating the role. You attach the permissions to the role when it's created so it's important to create the permissions first. 
 
 ![Creating Permissions for Lambda role](https://i.imgur.com/mVchuJh.png)
