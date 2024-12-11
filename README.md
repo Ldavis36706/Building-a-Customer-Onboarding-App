@@ -19,7 +19,7 @@ In your first capstone, you are a cloud application developer working for AnyCom
 - <b> Amazon SNS: </b> Amazon Simple Notification Service (Amazon SNS) is a managed service that provides message delivery from publishers to subscribers (also known as producers and consumers). Publishers communicate asynchronously with subscribers by sending messages to a topic, which is a logical access point and communication channel. Clients can subscribe to the Amazon SNS topic and receive published messages using a supported endpoint type, such as Amazon Data Firehose, Amazon SQS, AWS Lambda, HTTP, email, mobile push notifications, and mobile text messages (SMS).
 - <b> DynamoDB: </b> Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. DynamoDB lets you offload the administrative burdens of operating and scaling a distributed database so that you don’t have to worry about hardware provisioning, setup and configuration, replication, software patching, or cluster scaling. DynamoDB also offers encryption at rest, which eliminates the operational burden and complexity involved in protecting sensitive data.
 - <b>AWS Lambda: </b> AWS Lambda is a compute service that lets you run code without provisioning or managing servers. Lambda runs your code on a high availability compute infrastructure and performs the administration of the compute resources, including server and operating system maintenance, capacity provisioning and automatic scaling, and logging. With Lambda, all you need to do is supply your code in one of the language runtimes that Lambda supports.
-
+- <b>AWS SAM: </b> AWS SAM consists of two parts, AWS SAM templates and the AWS SAM CLI. AWS SAM templates provide a shorthand syntax, optimized for defining infrastructure as code (IaC) for serverless applications. An extension of AWS CloudFormation, you deploy AWS SAM templates directly to CloudFormation, benefiting from its extensive IaC support on AWS. The AWS SAM CLI is a developer tool that puts AWS SAM features at your fingertips. Use it to quickly create, develop, and deploy serverless applications.
 
 <h2>Environments Used </h2>
 
@@ -105,11 +105,7 @@ The customer onboarding process starts by the customer using a mobile app to app
 Lastly for this week, I started developing the first task performed by the DocumentLambdaFunction to download the .zip file from the bucket and extract its contents to start processing and validating the customer details. The DocumentLambdaFunction code shoud do the following:
 - <b>	Download the .zip file object from zipped/ prefix in the S3 bucket.</b> My code should know the .zip file name from the invocation event that I captured in the previous task.
 - <b>	Extract the .zip file into the /tmp directory in the Lambda function ephemeral storage. </b>
-- <b>	Upload the three extracted files to the unzipped/ prefix in the Documentbucket. </b> The individual unzipped files must be stored into a different prefix because they will be required later in the validation so my Lambda function can reference them for future use.
-- <b>	Extract the app_uuid value from the file name. </b>I saved it into a variable named app_uuid.
-- <b>	Extract the unzipped selfie file object name in the unzipped/ prefix in the S3 bucket. </b> 
-- <b> Extract the unzipped driver’s license file object name in the unzipped/ prefix in the S3 bucket. </b> The key should include the prefix, as well. 
-- <b>	Extract the local details file name in the Lambda function. </b> 
+- <b>	Upload the three extracted files to the unzipped/ prefix in the Documentbucket. </b> 
 
 
 
@@ -118,6 +114,34 @@ I made the changes and tested it by uploading a zipped file and ensured that it'
 ![Upload Zipped File](https://i.imgur.com/BmdMjLK.png)
 
 <b><i>Image description: I uploaded a zipped file to invoke the Lambda function. The Lambda function uploaded all three individual files to the unzipped/ prefix in the S3 bucket.</b></i>
+
+<br/>
+
+<h1></h1>
+
+I further developed the Lambda function so that it interacts with Amazon S3 events. The function now does the following: <br/>
+- <b>	Extract the app_uuid value from the file name. </b>I saved it into a variable named app_uuid.
+- <b>	Extract the unzipped selfie file object name in the unzipped/ prefix in the S3 bucket. </b> 
+- <b> Extract the unzipped driver’s license file object name in the unzipped/ prefix in the S3 bucket. </b> The key should include the prefix, as well. 
+- <b>	Extract the local details file name in the Lambda function. </b>
+
+<br/>
+I tested the funtion by uploading a zipped file to the S3 bucket. Then I checked the CloudWatch logs to verify that it's abstracting the values from the files. 
+
+![Abstracted Values in Cloud](https://i.imgur.com/nUW8iZq.png)
+
+<b><i>Image description: CloudWatch is abstracting the values from the files that are uploaded to S3.</b></i>
+
+<h2> Week 4: </h2>
+
+![Figure 4](https://i.imgur.com/ayGVJRw.png)
+<b><i>Image description: The diagram depicts the KYC application architectural diagram. The Document Lambda function that you will build in this lab is highlighted.</b></i>
+
+
+
+  
+
+
 
 
 
