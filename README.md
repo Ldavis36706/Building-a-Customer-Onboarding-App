@@ -127,7 +127,7 @@ I further developed the Lambda function so that it interacts with Amazon S3 even
 - <b>	Extract the local details file name in the Lambda function. </b>
 
 <br/>
-I tested the funtion by uploading a zipped file to the S3 bucket. Then I checked the CloudWatch logs to verify that it's abstracting the values from the files. 
+I tested the function by uploading a zipped file to the S3 bucket. Then I checked the CloudWatch logs to verify that it's abstracting the values from the files. 
 
 ![Abstracted Values in Cloud](https://i.imgur.com/nUW8iZq.png)
 
@@ -135,8 +135,39 @@ I tested the funtion by uploading a zipped file to the S3 bucket. Then I checked
 
 <h2> Week 4: </h2>
 
-![Figure 4](https://i.imgur.com/ayGVJRw.png)
+![Figure 4](https://i.imgur.com/ayGVJRw.png)  
 <b><i>Image description: The diagram depicts the KYC application architectural diagram. The Document Lambda function that you will build in this lab is highlighted.</b></i>
+
+This week I used AWS SAM for the first time. My objective was to deploy a Lambda function using SAM. I also needed to configure an Amazon S3 event notification for a bucket to invoke the Lambda function using AWS SAM
+I was intimidated by the CLI, but it proved not to be so bad. There was a time when I had a typo. I was given an error message and a suggestion to correct it. I was able to successfully deploy the resources using AWS SAM.
+
+![Deployed Resources Using AWS SAM](https://i.imgur.com/sQLKadX.png)
+
+
+The last task I completed was developing Python code to parse the customer details .csv file. I developed Python code using the AWS SDK for Python to interact with a DynamoDB table. While updating tbe template YAML file, I kept getting error messages. <strong>You must ensure your indention is correct. </strong> After updating my indention my resources were working properly. 
+
+![Error Message](https://i.imgur.com/6EgxMCr.png)
+
+<h2> Week 5: </h2>
+
+![Figure 4](https://github.com/user-attachments/assets/6da2f921-790c-46f8-9883-30b986a8921f)
+
+<b><i>Image description: The diagram depicts the KYC application architectural diagram. The Document Lambda function IAM role and the Document Lambda function that you will configure in this lab are highlighted.</b></i>
+
+I updated the Document Lambda function IAM role to allow the required Amazon Rekognition permissions. It's important to follow the principle of least privilege. I made sure to only grant the necessary permissions to the Lambda function. Below you can take a look at the JSON permission policy I attached. 
+
+![JSON policy](https://i.imgur.com/M3ytPZq.png)
+
+My next objective required making more changes to my Lambda function. I updated the function so that it will submit the driver’s license and selfie Amazon S3 objects to Amazon Rekognition.
+It will then compare the faces in the two images. If the photo match is true: then it will update the DynamoDB table by setting the LICENSE_SELFIE_MATCH attribute to True.
+If the photo match is false: then it will update the DynamoDB table by setting the LICENSE_SELFIE_MATCH attribute to False. Next, it will send a failure message to the SNS topic. 
+For comparison purposes, I considered the photo match to be True if Amazon Rekognition returns a similarity result of 80% or higher.
+If the comparison fails, my code will stop and return a message with the outcome. This is important so the code will not be running if the face comparison fails.
+
+
+I tested that the function was working properly by uploading a matching and non-matching license and selfie. Below you will see the results from the Dynamo table after uploading a non-matching photo.  
+
+![False Value](https://github.com/user-attachments/assets/31a90c6a-fd4f-4387-b681-7bbfd72fa11d)
 
 
 
